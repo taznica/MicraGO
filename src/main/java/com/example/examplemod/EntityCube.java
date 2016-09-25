@@ -32,6 +32,7 @@ public class EntityCube extends EntityThrowable {
         {
             Entity target = result.entityHit;
             target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
+            target.setDead();
         }
 
         for (int j = 0; j < 8; ++j)

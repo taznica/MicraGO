@@ -27,8 +27,12 @@ public class ItemCube extends Item {
         if (!worldIn.isRemote) {
             EntityCube cube = new EntityCube(worldIn, playerIn);
             worldIn.spawnEntityInWorld(cube);
+            cube.setHeadingFromThrower(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
         }
 
         return ActionResult.newResult(EnumActionResult.PASS, itemStackIn);
+
+//        playerIn.addStat(StatList.getObjectUseStats(this));
+//        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
     }
 }
