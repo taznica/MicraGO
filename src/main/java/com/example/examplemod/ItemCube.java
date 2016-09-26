@@ -19,11 +19,13 @@ public class ItemCube extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+
         if (!playerIn.capabilities.isCreativeMode) {
             --itemStackIn.stackSize;
         }
 
         worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
         if (!worldIn.isRemote) {
             EntityCube cube = new EntityCube(worldIn, playerIn);
             worldIn.spawnEntityInWorld(cube);

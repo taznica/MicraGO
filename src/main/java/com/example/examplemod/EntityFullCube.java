@@ -21,22 +21,27 @@ public class EntityFullCube extends EntityThrowable {
     }
 
     protected void onImpact(RayTraceResult result) {
-        if(worldObj.isRemote){
-            return;
-        }
+//        if(worldObj.isRemote){
+//            return;
+//        }
 
         if (result.entityHit != null) {
             return;
         }
 
         if(result.typeOfHit == RayTraceResult.Type.BLOCK){
-            EntitySheep sheep = new EntitySheep(worldObj);
 
-            sheep.setLocationAndAngles(this.posX, this.posY, this.posZ, 0, 0);
-            sheep.rotationYawHead = sheep.rotationYaw;
-            sheep.renderYawOffset = sheep.rotationYaw;
+//            EntitySheep sheep = new EntitySheep(worldObj);
+//
+//            sheep.setLocationAndAngles(this.posX, this.posY, this.posZ, 0, 0);
+//            sheep.rotationYawHead = sheep.rotationYaw;
+//            sheep.renderYawOffset = sheep.rotationYaw;
+//
+//            worldObj.spawnEntityInWorld(sheep);
 
-            worldObj.spawnEntityInWorld(sheep);
+            EntitySheep entitySheep = new EntitySheep(this.worldObj);
+            entitySheep.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            this.worldObj.spawnEntityInWorld(entitySheep);
         }
 
 
