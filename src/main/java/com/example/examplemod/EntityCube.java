@@ -24,24 +24,21 @@ public class EntityCube extends EntityThrowable {
 
     protected void onImpact(RayTraceResult result)
     {
-        if(worldObj.isRemote){
-            return;
-        }
+//        if(worldObj.isRemote){
+//            return;
+//        }
 
-        if (result.entityHit != null)
-        {
+        if (result.entityHit != null) {
             Entity target = result.entityHit;
             target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
             target.setDead();
         }
 
-        for (int j = 0; j < 8; ++j)
-        {
+        for (int j = 0; j < 8; ++j) {
             this.worldObj.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
         }
 
-        if (!this.worldObj.isRemote)
-        {
+        if (!this.worldObj.isRemote) {
             this.setDead();
         }
     }
