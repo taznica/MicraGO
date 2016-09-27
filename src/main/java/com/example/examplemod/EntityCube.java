@@ -1,6 +1,5 @@
 package com.example.examplemod;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
@@ -29,9 +28,13 @@ public class EntityCube extends EntityThrowable {
 //        }
 
         if (result.entityHit != null) {
-            Entity target = result.entityHit;
-            target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
-            target.setDead();
+//            Entity target = result.entityHit;
+//            target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
+//            target.setDead();
+
+            ExampleMod.TARGET = result.entityHit;
+            ExampleMod.TARGET.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
+            ExampleMod.TARGET.setDead();
         }
 
         for (int j = 0; j < 8; ++j) {
