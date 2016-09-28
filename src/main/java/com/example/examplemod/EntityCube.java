@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
@@ -8,6 +9,10 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityCube extends EntityThrowable {
+
+
+    Entity target;
+
 
     public EntityCube(World worldIn) {
         super(worldIn);
@@ -28,13 +33,11 @@ public class EntityCube extends EntityThrowable {
 //        }
 
         if (result.entityHit != null) {
-//            Entity target = result.entityHit;
-//            target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
-//            target.setDead();
+            target = result.entityHit;
+            target.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
+            target.setDead();
 
-            ExampleMod.TARGET = result.entityHit;
-            ExampleMod.TARGET.entityDropItem(new ItemStack(ExampleMod.fullCube), 1);
-            ExampleMod.TARGET.setDead();
+
         }
 
         for (int j = 0; j < 8; ++j) {

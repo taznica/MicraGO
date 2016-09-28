@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -30,12 +31,9 @@ public class EntityFullCube extends EntityThrowable {
 
         if(result.typeOfHit == RayTraceResult.Type.BLOCK){
 
-//            EntitySheep entitySheep = new EntitySheep(this.worldObj);
-//            entitySheep.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-//            this.worldObj.spawnEntityInWorld(entitySheep);
-
-            ExampleMod.TARGET.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-            this.worldObj.spawnEntityInWorld(ExampleMod.TARGET);
+            EntitySheep entitySheep = new EntitySheep(this.worldObj);
+            entitySheep.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+            this.worldObj.spawnEntityInWorld(entitySheep);
         }
 
 
