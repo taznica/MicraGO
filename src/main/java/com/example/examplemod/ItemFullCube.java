@@ -15,6 +15,8 @@ public class ItemFullCube extends Item {
         super();
         setCreativeTab(ExampleMod.tabGo);
         setUnlocalizedName(ExampleMod.MODID + "_monsterfullcube");
+        setMaxDamage(0);
+        setHasSubtypes(true);
     }
 
     @Override
@@ -34,4 +36,28 @@ public class ItemFullCube extends Item {
 
         return ActionResult.newResult(EnumActionResult.PASS, itemStackIn);
     }
+
+    public int getMetadata(int damage)
+    {
+        return damage;
+    }
+
+//    public ItemColored setSubtypeNames(String[] names)
+//    {
+//        this.subtypeNames = names;
+//        return this;
+//    }
+//
+//    public String getUnlocalizedName(ItemStack stack)
+//    {
+//        if (this.subtypeNames == null)
+//        {
+//            return super.getUnlocalizedName(stack);
+//        }
+//        else
+//        {
+//            int i = stack.getMetadata();
+//            return i >= 0 && i < this.subtypeNames.length ? super.getUnlocalizedName(stack) + "." + this.subtypeNames[i] : super.getUnlocalizedName(stack);
+//        }
+//    }
 }
