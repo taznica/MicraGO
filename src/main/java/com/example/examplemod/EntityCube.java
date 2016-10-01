@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class EntityCube extends EntityThrowable {
 
 
-    Entity target;
+    public static Entity target;
 
 
     public EntityCube(World worldIn) {
